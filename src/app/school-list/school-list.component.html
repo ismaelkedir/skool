@@ -1,3 +1,26 @@
-<p>
-  school-list works!
-</p>
+<div *ngFor="let school of schools" class="row">
+  <div class="col s12 left-align">
+    <div class="card white">
+      <div class="card-content">
+        <h4 class="card-title">{{school.name}}</h4>
+        <span class="badge">{{school.type}} | {{school.level}}</span>
+        <div class="rating">
+          <i class="tiny material-icons">star</i>
+          <i class="tiny material-icons">star_border</i>
+          <i class="tiny material-icons">star_border</i>
+          <i class="tiny material-icons">star_border</i>
+          <i class="tiny material-icons">star_border</i>
+        </div>
+        <p class="truncate">{{school.description}}</p>
+
+      </div>
+      <div class="card-action">
+        <a [routerLink]="['/routePath']" routerLinkActive="router-link-active" class="green-text">
+          More Details
+          <i class="material-icons left">keyboard_arrow_right</i>
+        </a>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

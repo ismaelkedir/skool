@@ -1,9 +1,9 @@
 export class School {
-    _id: String;
-    name: String;
-    type: String;
-    level: String;
-    description: String;
-    website: String;
+    _id: string;
+    name: string;
+    type: string;
+    level: string;
+    description: string;
+    website: string;
     social: [];
 }

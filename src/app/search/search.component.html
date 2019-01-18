@@ -1,20 +1,21 @@
-<div id="search-area" class="green lighten-1 white-text">
-    <div class="container">
-        <div class="row center">
-            <h1>SKOOL</h1>
-            <p>Look For Education</p>
-            <div class="row left-align">
-                <div class="input-field col s8 offset-s2 white-text z-depth-2">
-                    <i class="white-text material-icons prefix">search</i>
-                    <input (keyup)="startSearch()" [(ngModel)]="searchTerm" id="search" type="search" class="green lighten-1 white-text">
-                    <label for="search" class="white-text">Start typing to search for schools/universities</label>
-                </div>
-            </div>
+<div id="search-area" class="green lighten-1 white-text" [ngClass]="{small: searchTerm!=''}">
+  <div class="container">
+    <div class="row center">
+      <img id="search-area-logo" src="./assets/img/skool_logo_secondary.svg" alt="logo">
+      <p>Look For Education</p>
+      <div class="row left-align">
+        <div class="input-field white col s8 offset-s2 z-depth-2">
+          <i class="green-text material-icons prefix">search</i>
+          <input (keyup)="startSearch()" [(ngModel)]="searchTerm" id="search" type="search" placeholder="Start typing to search for schools/universities"
+            class="lighten-1">
+          <label for="search" class="white-text"></label>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="container center">
-    <app-school-list></app-school-list>
+  <!-- Parent to child communication here ([schools]="schools") -->
+  <app-school-list [schools]="schools"></app-school-list>
 </div>
-
