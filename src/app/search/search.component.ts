@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SchoolService } from '../services/school.service';
+import { Observable, fromEvent } from 'rxjs';
+import { map, debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -8,36 +10,29 @@ import { SchoolService } from '../services/school.service';
 })
 export class SearchComponent implements OnInit {
 
-  // The search query
-  searchTerm: String = '';
-
   // This array of schools will be sent to the child component (School-List)
   schools: any = [];
-  schoolsCount: number = 0;
 
   constructor(private _schoolService: SchoolService) { }
 
   ngOnInit() {
-  }
+    const searchBox = document.getElementById('search-box');
 
-  // Method to run when the user starts to type in the search bar
-  startSearch() {
-    
-    // If the search bar is not empty...
-    if (this.searchTerm != '') {
-      // Call the api endpoint that searches for a record with a 
-      // schoolname containing the searchTerm
-      this._schoolService.search(this.searchTerm)
-        .subscribe(result => {
-          M.toast({ html: `${result.length} schools found.`, classes: 'rounded' });
-          this.schools = result;
-        }, error =>
-            // If an error occurs
-            console.error(error)
-        );
-    } else {
-      // If the search bar is empty, then empty the school-list
-      this.schools = [];
-    }
+    /**
+     * Add a type-ahead search functionality
+     * With a debounceTime to prevent exessive calls to the api
+     */
+    fromEvent(searchBox, 'input').pipe(
+      map((e: KeyboardEvent) => e.target.value),
+      debounceTime(400),
+      distinctUntilChanged(),
+      filter((query: string) => query.length > 0),
+      switchMap((query: string) => this._schoolService.search(query))
+    ).subscribe(result => {
+      this.schools = result;
+
+      M.toast({html: `${this.schools.length} schools found.`})
+    }, error => console.error(error))
+
   }
 }

@@ -6,7 +6,7 @@
       <div class="row left-align">
         <div class="input-field white col s8 offset-s2 z-depth-2">
           <i class="green-text material-icons prefix">search</i>
-          <input (keyup)="startSearch()" [(ngModel)]="searchTerm" id="search" type="search" placeholder="Start typing to search for schools/universities"
+          <input id="search-box" type="search" placeholder="Start typing to search for schools/universities"
             class="lighten-1">
           <label for="search" class="white-text"></label>
         </div>
@@ -17,5 +17,5 @@
 
 <div class="container center">
   <!-- Parent to child communication here ([schools]="schools") -->
-  <app-school-list [schools]="schools"></app-school-list>
+  <app-school-list *ngIf="schools" [schools]="schools"></app-school-list>
 </div>
