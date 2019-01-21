@@ -6,24 +6,25 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
-import { SchoolListComponent } from './school-list/school-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SchoolService } from './services/school.service';
+import { SchoolService } from './schools/school.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SchoolsModule } from './schools/schools.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
-    SchoolListComponent,
     NavbarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // NOTE: Order of the route modules matter
+    SchoolsModule,
+    AppRoutingModule,
   ],
   providers: [
     SchoolService

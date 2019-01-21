@@ -1,0 +1,34 @@
+<div id="search-area" class="green lighten-1 white-text" [ngClass]="{small: loading || schools.length}">
+  <div class="container">
+    <div class="row center">
+      <img id="search-area-logo" src="./assets/img/skool_logo_secondary.svg" alt="logo">
+      <p>Look For Education</p>
+      <div class="row left-align">
+        <div class="input-field white col s8 offset-s2 z-depth-2">
+          <i class="green-text material-icons prefix">search</i>
+          <input id="search-box" type="search" placeholder="Start typing to search for schools/universities" class="lighten-1">
+          <label for="search" class="white-text"></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container center">
+  <div *ngIf="loading" class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Parent to child communication here ([schools]="schools") -->
+  <app-school-list *ngIf="schools && !loading" [schools]="schools"></app-school-list>
+</div>

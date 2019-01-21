@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { RestService } from './abstract/rest-service';
+import { RestService } from '../services/rest-service';
 import { School } from '../models/school';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map, debounceTime, distinctUntilChanged, switchMap } from "rxjs/operators";
-
 @Injectable({
   providedIn: 'root'
 })

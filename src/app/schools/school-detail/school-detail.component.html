@@ -1,0 +1,32 @@
+<div *ngIf="school">
+  <div class="green">
+    <div class="container center">
+      <div class="school-detail-header white-text">
+        <h3>{{school.name}}</h3>
+        <h6>{{school.type | titlecase}} | {{school.level}}</h6>
+
+        <br>
+
+        <span *ngIf="school.website">
+          <a class="btn white black-text waves-effect" target="_blank" href="{{school.website}}">
+            <i class="material-icons left">link</i>
+            Visit Website
+          </a>
+        </span>
+        &nbsp; OR &nbsp;
+        <a *ngIf="school.social.facebook" class="btn blue darken-2 waves-effect" target="_blank" href="{{school.social.facebook}}">
+          Facebook
+        </a>
+        &nbsp;
+        <a *ngIf="school.social.telegram" class="btn blue lighten-1 waves-effect" target="_blank" href="{{school.social.telegram}}">
+          Telegram
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <p>
+      {{school.description}}
+    </p>
+  </div>
+</div>

@@ -16,6 +16,6 @@ export abstract class RestService<T> {
 
     // Fetches one element
     getOne(id: string): Observable<T> {
-        return this._http.get(`${this.endPoint}${id}`) as Observable<T>;
+        return this._http.get(`${this.baseUrl}${this.endPoint}/${id}`) as Observable<T>;
     }
 }

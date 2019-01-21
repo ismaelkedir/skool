@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { SchoolService } from '../services/school.service';
-import { Observable, fromEvent } from 'rxjs';
-import { map, debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
+import { SchoolService } from '../school.service';
+import { fromEvent } from 'rxjs';
+import { map, debounceTime, distinctUntilChanged, filter, switchMap, tap, finalize } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.sass']
+  selector: 'app-school-search',
+  templateUrl: './school-search.component.html',
+  styleUrls: ['./school-search.component.sass']
 })
-export class SearchComponent implements OnInit {
+export class SchoolSearchComponent implements OnInit {
 
+  loading: boolean = false;
   // This array of schools will be sent to the child component (School-List)
   schools: any = [];
 
@@ -24,14 +25,18 @@ export class SearchComponent implements OnInit {
      */
     fromEvent(searchBox, 'input').pipe(
       map((e: KeyboardEvent) => e.target.value),
-      debounceTime(400),
+      debounceTime(500),
+      tap(() => this.loading = true),
       distinctUntilChanged(),
       filter((query: string) => query.length > 0),
-      switchMap((query: string) => this._schoolService.search(query))
+      switchMap((query: string) => this._schoolService.search(query)
+        .pipe(
+          finalize(() => this.loading = false)
+        ))
     ).subscribe(result => {
       this.schools = result;
 
-      M.toast({html: `${this.schools.length} schools found.`})
+      M.toast({ html: `${this.schools.length} schools found.` })
     }, error => console.error(error))
 
   }

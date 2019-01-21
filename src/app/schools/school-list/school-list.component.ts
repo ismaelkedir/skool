@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { School } from '../models/school';
-import { SchoolService } from '../services/school.service';
+import { SchoolService } from '../school.service';
 
 @Component({
   selector: 'app-school-list',
@@ -13,7 +12,6 @@ export class SchoolListComponent implements OnInit {
   constructor(private _schoolService: SchoolService) { }
 
   @Input() schools;
-  schoolsCount: number = 0;
 
   ngOnInit() {
     
