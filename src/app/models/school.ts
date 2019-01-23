@@ -3,7 +3,9 @@ export class School {
     name: string;
     type: string;
     level: string;
-    description: string;
+    rating: number;
     website: string;
+    phone_number: string;
     social: [];
+    description: string;
 }
