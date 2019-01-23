@@ -4,13 +4,14 @@
       <div class="card-content">
         <h4 class="card-title">{{school.name}}</h4>
         <span class="badge">{{school.type}} | {{school.level}}</span>
-        <div class="rating">
-          <i class="tiny material-icons">star</i>
-          <i class="tiny material-icons">star_border</i>
-          <i class="tiny material-icons">star_border</i>
-          <i class="tiny material-icons">star_border</i>
-          <i class="tiny material-icons">star_border</i>
+
+        <div *ngIf="school.rating; else noRating" class="rating">
+          <i *ngFor="let star of ' '.repeat(school.rating).split('')" class="tiny material-icons">star</i>
         </div>
+
+        <!-- If the rating is 0 -->
+        <ng-template #noRating><span class="grey-text text-lighten-2">No ratings</span><br></ng-template>
+
         <p class="truncate">{{school.description}}</p>
 
       </div>

@@ -5,6 +5,13 @@
         <h3>{{school.name}}</h3>
         <h6>{{school.type | titlecase}} | {{school.level}}</h6>
 
+        <div *ngIf="school.rating; else noRating" class="rating white-text">
+          <i *ngFor="let star of ' '.repeat(school.rating).split('')" class="tiny material-icons">star</i>
+        </div>
+
+        <!-- If the rating is 0 -->
+        <ng-template #noRating><span class="grey-text text-lighten-2">No ratings</span><br></ng-template>
+
         <br>
 
         <span *ngIf="school.website">
