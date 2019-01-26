@@ -10,12 +10,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SchoolService } from './schools/school.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SchoolsModule } from './schools/schools.module';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ContactPageComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
