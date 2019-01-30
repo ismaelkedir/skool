@@ -11,10 +11,18 @@
         </div>
       </div>
     </div>
+    <div class="row center">
+      <div class="center">
+        OR
+      </div>
+      <br>
+      <button (click)="findNearBy()" id="find-nearby-btn" class="btn green white-text"><b>Find Nearby</b></button>
+    </div>
   </div>
 </div>
 
 <div class="container center">
+  <!-- Loading Spinner -->
   <div *ngIf="loading" class="preloader-wrapper big active">
     <div class="spinner-layer spinner-blue-only">
       <div class="circle-clipper left">

@@ -1,0 +1,22 @@
+<div class="container center">
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 *ngIf="nearbySchools" class="center">
+    Found {{nearbySchools.length}} school{{nearbySchools.length > 1||nearbySchools.length ==0 ? 's':''}} near you
+  </h3>
+
+  <app-school-list *ngIf="nearbySchools.length && !loading" [schools]="nearbySchools"></app-school-list>
+</div>

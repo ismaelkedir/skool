@@ -1,11 +1,13 @@
 #search-area
     height: 100vh
     display: flex
+    position: relative
     flex-direction: column
     justify-content: space-around
     transition-duration: .5s
     img#search-area-logo
         width: 300px
+        margin-left: 10px
         transition-duration: .3s
         transition-timing-function: ease-in-out
     .input-field
@@ -15,8 +17,11 @@
             margin-bottom: 0
             border: none
     &.small
-        height: 50vh
+        height: 25em
         margin-bottom: 50px
         img#search-area-logo
             margin-top: 80px
             width: 200px
+        #find-nearby-btn
+            width: 100%
+        

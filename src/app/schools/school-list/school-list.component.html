@@ -2,8 +2,10 @@
   <div class="col s12 left-align">
     <div class="card white">
       <div class="card-content">
-        <h4 class="card-title">{{school.name}}</h4>
-        <span class="badge">{{school.type}} | {{school.level}}</span>
+        <h4 class="card-title"><b>{{school.name}}</b></h4>
+        <span class="grey-text">{{school.type}} | {{school.level}}</span>
+
+        <br>
 
         <div *ngIf="school.rating; else noRating" class="rating">
           <i *ngFor="let star of ' '.repeat(school.rating).split('')" class="tiny material-icons">star</i>

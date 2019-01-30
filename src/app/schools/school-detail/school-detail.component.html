@@ -13,27 +13,58 @@
         <ng-template #noRating><span class="grey-text text-lighten-2">No ratings</span><br></ng-template>
 
         <br>
+        <span *ngIf="school.phone_number">
+          <a class="btn white black-text waves-effect" href="tel:{{school.phone_number}}">
+            <i class="material-icons left">call</i>
+            Call
+          </a>
+          &nbsp;
+        </span>
+
+
+        <span *ngIf="school.email">
+          <a class="btn white black-text waves-effect" href="mailto:{{school.email}}">
+            <i class="material-icons left">email</i>
+            Email
+          </a>
+          &nbsp;
+        </span>
+
 
         <span *ngIf="school.website">
           <a class="btn white black-text waves-effect" target="_blank" href="{{school.website}}">
             <i class="material-icons left">link</i>
             Visit Website
           </a>
+          &nbsp;
         </span>
-        &nbsp; OR &nbsp;
-        <a *ngIf="school.social.facebook" class="btn blue darken-2 waves-effect" target="_blank" href="{{school.social.facebook}}">
-          Facebook
-        </a>
-        &nbsp;
-        <a *ngIf="school.social.telegram" class="btn blue lighten-1 waves-effect" target="_blank" href="{{school.social.telegram}}">
-          Telegram
-        </a>
+
+        <span *ngIf="school.social.facebook">
+          <a class="btn blue darken-2 waves-effect" target="_blank" href="{{school.social.facebook}}">
+            Facebook
+          </a>
+          &nbsp;
+        </span>
+        <span *ngIf="school.social.telegram">
+          <a *ngIf="school.social.telegram" class="btn blue lighten-1 waves-effect" target="_blank" href="{{school.social.telegram}}">
+            Telegram
+          </a>
+        </span>
       </div>
     </div>
   </div>
   <div class="container">
-    <p>
-      {{school.description}}
-    </p>
+    <ul class="tabs tabs-fixed-width">
+      <li class="tab"><a class="active" href="#description">Description</a></li>
+      <li class="tab"><a href="#location">Location</a></li>
+    </ul>
+    <div id="description">
+      <p>
+        {{school.description}}
+      </p>
+    </div>
+    <div id="location">
+<img src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&size=400x400" alt="">
+    </div>
   </div>
 </div>

@@ -12,7 +12,15 @@ export class SchoolService extends RestService<School>{
     super(http, '/schools');
   }
 
+  /**
+   * Calls the api endpoint that searches for schools with the provided @param term
+   * @param term The Search query that will be inserted to the url endpoint
+   */
   search(term) {
-    return this._http.get(`${this.baseUrl}${this.endPoint}/search/${term}`);
+    return this._http.get(`${this.baseUrl}${this.endPoint}/search?q=${term}`);
+  }
+
+  nearby(coordinate){
+    return this._http.get(`${this.baseUrl}${this.endPoint}/near?coordinate=${coordinate}`)
   }
 }
