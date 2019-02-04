@@ -8,4 +8,5 @@ export class School {
     phone_number: string;
     social: [];
     description: string;
+    location: [];
 }
