@@ -63,8 +63,11 @@
         {{school.description}}
       </p>
     </div>
-    <div id="location">
-<img src="https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&size=400x400" alt="">
+    <div id="location" class="center">
+      {{school.location}}
+      <br>
+<img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-a+9ed4bd({{school.location[1]}},{{school.location[0]}})/auto/600x600?access_token=pk.eyJ1IjoiaXNtYWVsa2QiLCJhIjoiY2pybDhheWR5MDVmbTRhcG9jcDBya3dnOCJ9.BWi-UskVOJBnCabeM4u8Yw"
+        alt="">
     </div>
   </div>
 </div>
