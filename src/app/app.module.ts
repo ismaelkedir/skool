@@ -13,6 +13,7 @@ import { SchoolsModule } from './schools/schools.module';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ArticlesModule } from './articles/articles.module';
+import { ScholarshipsModule } from './scholarships/scholarships.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ArticlesModule } from './articles/articles.module';
     // NOTE: Order of the route modules matter
     SchoolsModule,
     ArticlesModule,
+    ScholarshipsModule,
     AppRoutingModule,
   ],
   providers: [

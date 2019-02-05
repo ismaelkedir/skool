@@ -16,6 +16,11 @@ const routes: Routes = [
     redirectTo: '/articles'
   },
   {
+    path: 'scholarships',
+    pathMatch: 'full',
+    redirectTo: '/scholarships'
+  },
+  {
     path: 'about',
     component: AboutPageComponent
   },
