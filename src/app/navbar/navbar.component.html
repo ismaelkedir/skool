@@ -2,6 +2,11 @@
   <div class="nav-wrapper green">
     <!-- <a href="#" class="brand-logo center">SKOOL</a> -->
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+    <ul *ngIf="_router.url != '/schools'" class="left hide-on-med-and-down">
+      <li><a routerLink="/"><i class="material-icons left">chevron_left</i> Back to home</a></li>
+    </ul>
+
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown-desktop">Explore<i class="material-icons right">arrow_drop_down</i></a></li>
       <li>
@@ -19,14 +24,14 @@
 </nav>
 
 <ul id="dropdown-desktop" class="dropdown-content">
-  <li><a href="#!">Articles</a></li>
+  <li><a routerLink="/articles">Articles</a></li>
   <li><a href="#!">News</a></li>
   <li class="divider"></li>
-  <li><a href="#!">Scholarships info</a></li>
+  <li><a href="#!">Scholarships</a></li>
 </ul>
 <ul id="dropdown-mobile" class="dropdown-content">
-  <li><a href="#!">Articles</a></li>
+  <li><a routerLink="/articles">Articles</a></li>
   <li><a href="#!">News</a></li>
   <li class="divider"></li>
-  <li><a href="#!">Scholarships info</a></li>
+  <li><a href="#!">Scholarships</a></li>
 </ul>

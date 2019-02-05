@@ -11,6 +11,11 @@ const routes: Routes = [
     redirectTo: '/schools'
   },
   {
+    path: 'articles',
+    pathMatch: 'full',
+    redirectTo: '/articles'
+  },
+  {
     path: 'about',
     component: AboutPageComponent
   },

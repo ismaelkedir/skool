@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SchoolsModule } from './schools/schools.module';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { ArticlesModule } from './articles/articles.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
     BrowserAnimationsModule,
     // NOTE: Order of the route modules matter
     SchoolsModule,
+    ArticlesModule,
     AppRoutingModule,
   ],
   providers: [
