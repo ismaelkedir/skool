@@ -14,8 +14,11 @@
     </div>
   </div>
 
+  <br>
+  <img *ngIf="!loading" id="gps-icon" src="./assets/img/signal_icon.png" alt="gps">
+
   <h3 *ngIf="nearbySchools" class="center">
-    Found {{nearbySchools.length}} school{{nearbySchools.length > 1||nearbySchools.length ==0 ? 's':''}} near you
+    We found {{nearbySchools.length}} school{{nearbySchools.length > 1||nearbySchools.length ==0 ? 's':''}} near you
   </h3>
 
   <app-school-list *ngIf="nearbySchools.length && !loading" [schools]="nearbySchools"></app-school-list>

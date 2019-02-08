@@ -17,6 +17,8 @@ export class SchoolDetailComponent implements OnInit {
 
    
    ngOnInit() {
+    M.Tabs.init(document.querySelector('.tabs'));
+
     //  Get the school id from the param passed in the URL
     this.router.params.subscribe(params => {
       let id = params['id'];
