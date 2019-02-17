@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 
 export abstract class RestService<T> {
 
-    baseUrl: string = 'http://localhost:5000';
-    // baseUrl: string = 'https://skool-finder-api.herokuapp.com';
+    // baseUrl: string = 'http://localhost:5000';
+    baseUrl: string = 'https://skool-finder-api.herokuapp.com';
 
     constructor(protected _http: HttpClient, protected endPoint: string) {
 
