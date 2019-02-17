@@ -4,6 +4,6 @@ pages:
   - echo 'Noting to do...'
   artifacts:
     paths:
-    - public/
+    - /
   only:
-  - master
+  - gh-pages
