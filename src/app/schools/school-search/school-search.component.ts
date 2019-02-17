@@ -71,7 +71,7 @@ export class SchoolSearchComponent implements OnInit {
     }
 
     fromEvent(searchBox, 'input').pipe(
-      map((e: KeyboardEvent) => e.target.value), // Map the value entered on every keyboard typing event
+      map((e: KeyboardEvent) => (<HTMLInputElement>e.target).value), // Map the value entered on every keyboard typing event
       debounceTime(500), // Add a 500 ms debounceTime before starting the search for every keystroke
       tap(() => this.loading = true), // When the event is triggered, show the loading spinner
       distinctUntilChanged(), // Leave the results unchaged if the keyinput is for eg: pressing backspace
