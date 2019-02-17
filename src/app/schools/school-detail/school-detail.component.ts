@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { SchoolService } from '../school.service';
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-school-detail',

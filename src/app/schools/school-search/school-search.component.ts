@@ -3,6 +3,7 @@ import { SchoolService } from '../school.service';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged, filter, switchMap, tap, finalize } from 'rxjs/operators';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-school-search',
